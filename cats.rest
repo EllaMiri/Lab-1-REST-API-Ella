@@ -1,0 +1,13 @@
+GET http://localhost:3000/api/cats
+
+###
+
+POST http://localhost:3000/api/cats
+Content-Type: application/json
+
+{
+   "name": "Jonas",
+   "age": 10,
+   "color": "orange",
+   "id": 7
+}
