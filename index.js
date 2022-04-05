@@ -8,19 +8,18 @@ const cats = [
     name: "Cocos",
     age: 5,
     color: "Cream",
-    id: 1,
   },
   {
     name: "Twister",
     age: 3,
     color: "Black",
-    id: 2,
   },
 ];
 
 app.use(express.json());
 
 app.get("/api/cats", (req, res) => {
+  res.status(200);
   res.json(cats);
 });
 

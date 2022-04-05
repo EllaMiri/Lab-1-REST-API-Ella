@@ -6,8 +6,8 @@ POST http://localhost:3000/api/cats
 Content-Type: application/json
 
 {
-   "name": "Jonas",
+   "name": "John",
    "age": 10,
-   "color": "orange",
-   "id": 7
+   "color": "orange"
 }
+
