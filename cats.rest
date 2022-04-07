@@ -6,14 +6,14 @@ POST http://localhost:3000/api/cats
 Content-Type: application/json
 
 {
-   "name": "Twister",
-   "age": 3,
-   "color": "Gray"
+   "name": "Cocos",
+   "age": 5,
+   "color": "Red"
 }
 
 ###
 
-PUT http://localhost:3000/api/cats/337a9d05-a9e3-45bb-a49f-e6cbc2b1709c
+PUT http://localhost:3000/api/cats/16bbbd1f-30db-42bf-b083-525a2756c065
 Content-Type: application/json
 
 {
@@ -24,5 +24,5 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/cats/337a9d05-a9e3-45bb-a49f-e6cbc2b1709c
+DELETE http://localhost:3000/api/cats/16bbbd1f-30db-42
 
