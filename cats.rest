@@ -13,16 +13,16 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/api/cats/f3e675d4-9f76-4469-b36f-8ce31ab4b96a
+PUT http://localhost:3000/api/cats/337a9d05-a9e3-45bb-a49f-e6cbc2b1709c
 Content-Type: application/json
 
 {
-   "name": "Twister",
+   "name": "Scoob",
    "age": 3,
    "color": "Gray"
 }
 
 ###
 
-DELETE http://localhost:3000/api/cats/f3e675d4-9f76-4469-b36f-8ce31ab4b96a
+DELETE http://localhost:3000/api/cats/337a9d05-a9e3-45bb-a49f-e6cbc2b1709c
 
