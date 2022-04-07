@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 const host = "localhost";
 
+// Array of cats that contains all the different cats in form of objects.
 let cats = [
   // {
   //   name: "Cocos",
@@ -21,6 +22,10 @@ let cats = [
 
 app.use(express.json());
 
+{
+  /* GET. Checks if there are any cats in the array, 
+if no sends 404 and if yes displays cats and 200 status code. */
+}
 app.get("/api/cats", (req, res) => {
   if (cats.length === 0) {
     res.status(404);
@@ -31,6 +36,9 @@ app.get("/api/cats", (req, res) => {
   }
 });
 
+{
+  /* POST. Let's the user add a new cat to the array and gives the new cat a unique ID. */
+}
 app.post("/api/cats", (req, res) => {
   const cat = req.body;
   res.status(201);
@@ -39,6 +47,9 @@ app.post("/api/cats", (req, res) => {
   // res.json(cats);
 });
 
+{
+  /* PUT. Let's the user update an existing cat based on ID. If the ID (cat) doesn't exist it throws 404 error.*/
+}
 app.put("/api/cats/:id", (req, res) => {
   const catId = req.params.id;
   const { age, name, color } = req.body;
@@ -67,6 +78,9 @@ app.put("/api/cats/:id", (req, res) => {
   // res.json(cats);
 });
 
+{
+  /* DELETE. Let's the user delete a cat based on ID. If the ID (cat) doesn't exist it throws 404 error.  */
+}
 app.delete("/api/cats/:id", (req, res) => {
   const catId = req.params.id;
   // let foundIndex = cats.findIndex((cat) => cat.id === catId);
