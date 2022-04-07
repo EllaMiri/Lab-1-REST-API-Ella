@@ -25,9 +25,10 @@ app.get("/api/cats", (req, res) => {
   if (cats.length === 0) {
     res.status(404);
     res.send("No cats found");
+  } else {
+    res.status(200);
+    res.json(cats);
   }
-  res.status(200);
-  res.json(cats);
 });
 
 app.post("/api/cats", (req, res) => {
