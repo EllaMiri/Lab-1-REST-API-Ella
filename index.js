@@ -33,38 +33,62 @@ app.get("/api/cats", (req, res) => {
 
 app.post("/api/cats", (req, res) => {
   const cat = req.body;
-  cats.push({ ...cat, id: uuidV4() });
   res.status(201);
-  // res.send("Cat added");
-  res.json(cats);
+  res.send("Cat created!");
+  cats.push({ ...cat, id: uuidV4() });
+  // res.json(cats);
 });
 
 app.put("/api/cats/:id", (req, res) => {
   const catId = req.params.id;
   const { age, name, color } = req.body;
 
-  cats = cats.map(function (cat) {
-    if (cat.id === catId) {
-      return {
-        name,
-        age,
-        color,
-        id: cat.id,
-      };
+  const cat = cats.find((element) => {
+    if (element.id !== catId) {
+      res.status(404);
+      res.send("There is no cat with that ID to update.");
+      return false;
+    } else {
+      cats = cats.map(function (cat) {
+        res.status(200);
+        res.send("Cat updated!");
+        if (cat.id === catId) {
+          return {
+            name,
+            age,
+            color,
+            id: cat.id,
+          };
+        }
+        return cat;
+      });
     }
-    return cat;
   });
-  res.status(200);
-  res.json(cats);
+  // res.json(cats);
 });
 
 app.delete("/api/cats/:id", (req, res) => {
   const catId = req.params.id;
-  cats = cats.filter(function (cat) {
-    return cat.id !== catId;
+  // let foundIndex = cats.findIndex((cat) => cat.id === catId);
+  // if (foundIndex !== catId) {
+  //   res.status(404);
+  //   res.send("There is no cat with that ID");
+  // } else {
+
+  const cat = cats.find((element) => {
+    if (element.id !== catId) {
+      res.status(404);
+      res.send("There is no cat with that ID to delete.");
+      return false;
+    } else {
+      cats = cats.filter(function (cat) {
+        res.status(200);
+        res.send("Cat deleted!");
+        return cat.id !== catId;
+      });
+    }
+    // res.json(cats);
   });
-  res.status(200);
-  res.json(cats);
 });
 
 app.listen(port, () => {
