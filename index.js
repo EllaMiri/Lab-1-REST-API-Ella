@@ -44,7 +44,6 @@ app.post("/api/cats", (req, res) => {
   res.status(201);
   res.send("Cat created!");
   cats.push({ ...cat, id: uuidV4() });
-  // res.json(cats);
 });
 
 {
@@ -54,28 +53,26 @@ app.put("/api/cats/:id", (req, res) => {
   const catId = req.params.id;
   const { age, name, color } = req.body;
 
-  const cat = cats.find((element) => {
-    if (element.id !== catId) {
-      res.send("There is no cat with that ID to update.");
-      res.status(404);
-      return false;
-    } else {
-      cats = cats.map(function (cat) {
-        res.status(200);
-        res.send("Cat updated!");
-        if (cat.id === catId) {
-          return {
-            name,
-            age,
-            color,
-            id: cat.id,
-          };
-        }
-        return cat;
-      });
-    }
-  });
-  // res.json(cats);
+  const foundCat = cats.find((cat) => cat.id === catId);
+
+  if (!foundCat) {
+    res.status(404);
+    res.send("There is no cat with that ID to update.");
+  } else {
+    cats = cats.map(function (cat) {
+      res.status(200);
+      res.send("Cat updated!");
+      if (cat.id === catId) {
+        return {
+          name,
+          age,
+          color,
+          id: cat.id,
+        };
+      }
+      return cat;
+    });
+  }
 });
 
 {
@@ -83,26 +80,19 @@ app.put("/api/cats/:id", (req, res) => {
 }
 app.delete("/api/cats/:id", (req, res) => {
   const catId = req.params.id;
-  // let foundIndex = cats.findIndex((cat) => cat.id === catId);
-  // if (foundIndex !== catId) {
-  //   res.status(404);
-  //   res.send("There is no cat with that ID");
-  // } else {
 
-  const cat = cats.find((element) => {
-    if (element.id !== catId) {
-      res.status(404);
-      res.send("There is no cat with that ID to delete.");
-      return false;
-    } else {
-      cats = cats.filter(function (cat) {
-        res.status(200);
-        res.send("Cat deleted!");
-        return cat.id !== catId;
-      });
-    }
-    // res.json(cats);
-  });
+  const foundCat = cats.find((cat) => cat.id === catId);
+
+  if (!foundCat) {
+    res.status(404);
+    res.send("There is no cat with that ID to delete.");
+  } else {
+    cats = cats.filter(function (cat) {
+      res.status(200);
+      res.send("Cat deleted!");
+      return cat.id !== catId;
+    });
+  }
 });
 
 app.listen(port, () => {
