@@ -6,18 +6,18 @@ const host = "localhost";
 
 // Array of cats that contains all the different cats in form of objects.
 let cats = [
-  // {
-  //   name: "Cocos",
-  //   age: 2,
-  //   color: "Cream",
-  //   id: uuidV4(),
-  // },
-  // {
-  //   name: "Twister",
-  //   age: 5,
-  //   color: "Gray",
-  //   id: uuidV4(),
-  // },
+  {
+    name: "Cocos",
+    age: 2,
+    color: "Cream",
+    id: "61160fba-ec1f-4905-8e39-9ce9db2f362c",
+  },
+  {
+    name: "Twister",
+    age: 4,
+    color: "Gray",
+    id: "32cbd8aa-c888-4978-8107-1230b9d25848",
+  },
 ];
 
 app.use(express.json());
@@ -60,8 +60,6 @@ app.put("/api/cats/:id", (req, res) => {
     res.send("There is no cat with that ID to update.");
   } else {
     cats = cats.map(function (cat) {
-      res.status(200);
-      res.send("Cat updated!");
       if (cat.id === catId) {
         return {
           name,
@@ -72,6 +70,8 @@ app.put("/api/cats/:id", (req, res) => {
       }
       return cat;
     });
+    res.status(200);
+    res.send("Cat updated!");
   }
 });
 
@@ -88,10 +88,10 @@ app.delete("/api/cats/:id", (req, res) => {
     res.send("There is no cat with that ID to delete.");
   } else {
     cats = cats.filter(function (cat) {
-      res.status(200);
-      res.send("Cat deleted!");
       return cat.id !== catId;
     });
+    res.status(200);
+    res.send("Cat deleted!");
   }
 });
 
