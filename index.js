@@ -45,8 +45,8 @@ app.put("/api/cats/:id", (req, res) => {
 
   const cat = cats.find((element) => {
     if (element.id !== catId) {
-      res.status(404);
       res.send("There is no cat with that ID to update.");
+      res.status(404);
       return false;
     } else {
       cats = cats.map(function (cat) {
