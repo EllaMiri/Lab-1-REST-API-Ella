@@ -23,8 +23,7 @@ let cats = [
 app.use(express.json());
 
 {
-  /* GET. Checks if there are any cats in the array, 
-if no sends 404 and if yes displays cats and 200 status code. */
+  /* GET. Shows current cats */
 }
 app.get("/api/cats", (req, res) => {
   res.status(200);
