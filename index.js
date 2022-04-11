@@ -27,13 +27,8 @@ app.use(express.json());
 if no sends 404 and if yes displays cats and 200 status code. */
 }
 app.get("/api/cats", (req, res) => {
-  if (cats.length === 0) {
-    res.status(404);
-    res.send("No cats found");
-  } else {
-    res.status(200);
-    res.json(cats);
-  }
+  res.status(200);
+  res.json(cats);
 });
 
 {
