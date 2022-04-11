@@ -1,6 +1,6 @@
-# Rest API with Node JS and Express
+# Express Rest API
 
-This is a server where the user can create and delete cats as well as post new cats and update already existing ones.
+The user can create and delete cats as well as update already existing ones.
 
 ## Project Setup
 
