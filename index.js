@@ -43,8 +43,8 @@ app.post("/api/cats", (req, res) => {
 {
   /* PUT. Let's the user update an existing cat based on ID. If the ID (cat) doesn't exist it throws 404 error.*/
 }
-app.put("/api/cats/:id", (req, res) => {
-  const catId = req.params.id;
+app.put("/api/cats", (req, res) => {
+  const catId = req.body.id;
   const { age, name, color } = req.body;
 
   const foundCat = cats.find((cat) => cat.id === catId);

@@ -13,7 +13,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/api/cats/61160fba-ec1f-4905-8e39-9ce9db2f362c
+PUT http://localhost:3000/api/cats
 Content-Type: application/json
 
 {
